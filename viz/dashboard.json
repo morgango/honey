@@ -1,0 +1,19 @@
+[
+  {
+    "_id": "Attack-Overview",
+    "_type": "dashboard",
+    "_source": {
+      "title": "Attack Overview",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":1,\"id\":\"Attacks-by-Date-and-Protocol\",\"row\":1,\"size_x\":12,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"Attack-Density\",\"row\":3,\"size_x\":6,\"size_y\":7,\"type\":\"visualization\"},{\"col\":7,\"id\":\"Attack-Vector-Metrics\",\"row\":6,\"size_x\":6,\"size_y\":4,\"type\":\"visualization\"},{\"id\":\"All-Attacks\",\"type\":\"search\",\"size_x\":12,\"size_y\":6,\"col\":1,\"row\":10,\"columns\":[\"_source\"],\"sort\":[\"event_datetime\",\"desc\"]},{\"id\":\"Attacks-by-Vector-and-Country\",\"type\":\"visualization\",\"size_x\":6,\"size_y\":3,\"col\":7,\"row\":3}]",
+      "version": 1,
+      "timeRestore": true,
+      "timeTo": "2013-02-01T16:43:30.682Z",
+      "timeFrom": "2012-12-31T16:11:22.490Z",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+      }
+    }
+  }
+]
