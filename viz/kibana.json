@@ -1,0 +1,119 @@
+[
+  {
+    "_id": "Attack-Density-by-Type",
+    "_type": "visualization",
+    "_source": {
+      "title": "Attack Density by Type",
+      "visState": "{\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"params\": {},\n      \"schema\": \"metric\",\n      \"type\": \"count\"\n    },\n    {\n      \"id\": \"3\",\n      \"params\": {\n        \"field\": \"attack_vector.raw\",\n        \"order\": \"desc\",\n        \"orderBy\": \"1\",\n        \"row\": true,\n        \"size\": 5\n      },\n      \"schema\": \"split\",\n      \"type\": \"terms\"\n    },\n    {\n      \"id\": \"2\",\n      \"params\": {\n        \"autoPrecision\": true,\n        \"field\": \"lon_lat\",\n        \"mapCenter\": [\n          33.94335994657882,\n          14.23828125\n        ],\n        \"mapZoom\": 2,\n        \"precision\": 3\n      },\n      \"schema\": \"segment\",\n      \"type\": \"geohash_grid\"\n    }\n  ],\n  \"listeners\": {},\n  \"params\": {\n    \"addTooltip\": true,\n    \"heatBlur\": 15,\n    \"heatMaxZoom\": 16,\n    \"heatMinOpacity\": \"0.32\",\n    \"heatNormalizeData\": true,\n    \"heatRadius\": 25,\n    \"isDesaturated\": false,\n    \"mapType\": \"Heatmap\"\n  },\n  \"type\": \"tile_map\"\n}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"honey\",\n  \"query\": {\n    \"query_string\": {\n      \"analyze_wildcard\": true,\n      \"query\": \"*\"\n    }\n  },\n  \"filter\": [\n    {\n      \"meta\": {\n        \"disabled\": false,\n        \"index\": \"honey\",\n        \"key\": \"attack_vector.raw\",\n        \"negate\": true,\n        \"value\": \"undefined\"\n      },\n      \"query\": {\n        \"match\": {\n          \"attack_vector.raw\": {\n            \"query\": \"undefined\",\n            \"type\": \"phrase\"\n          }\n        }\n      }\n    }\n  ]\n}"
+      }
+    }
+  },
+  {
+    "_id": "Attacks-by-Country-and-Date",
+    "_type": "visualization",
+    "_source": {
+      "title": "Attacks by Country and Date",
+      "visState": "{\"aggs\":[{\"id\":\"1\",\"params\":{},\"schema\":\"metric\",\"type\":\"count\"},{\"id\":\"4\",\"params\":{\"customInterval\":\"2h\",\"extended_bounds\":{},\"field\":\"event_datetime\",\"interval\":\"d\",\"min_doc_count\":1,\"row\":false},\"schema\":\"split\",\"type\":\"date_histogram\"},{\"id\":\"2\",\"params\":{\"field\":\"attack_vector.raw\",\"order\":\"desc\",\"orderBy\":\"1\",\"size\":5},\"schema\":\"segment\",\"type\":\"terms\"},{\"id\":\"3\",\"params\":{\"field\":\"country.raw\",\"order\":\"desc\",\"orderBy\":\"1\",\"size\":5},\"schema\":\"segment\",\"type\":\"terms\"}],\"listeners\":{},\"params\":{\"addLegend\":true,\"addTooltip\":true,\"isDonut\":false,\"shareYAxis\":true},\"type\":\"pie\"}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"honey\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"tcp\"}},\"filter\":[{\"meta\":{\"index\":\"honey\",\"key\":\"attack_vector.raw\",\"value\":\"undefined\",\"disabled\":false,\"negate\":true},\"query\":{\"match\":{\"attack_vector.raw\":{\"query\":\"undefined\",\"type\":\"phrase\"}}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Attack-Density",
+    "_type": "visualization",
+    "_source": {
+      "title": "Attack Density",
+      "visState": "{\"type\":\"tile_map\",\"params\":{\"mapType\":\"Heatmap\",\"isDesaturated\":false,\"heatMaxZoom\":16,\"heatMinOpacity\":\"0.32\",\"heatRadius\":25,\"heatBlur\":15,\"heatNormalizeData\":true,\"addTooltip\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"geohash_grid\",\"schema\":\"segment\",\"params\":{\"field\":\"lon_lat\",\"autoPrecision\":true,\"mapZoom\":4,\"mapCenter\":[33.94335994657882,14.23828125],\"precision\":3}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"honey\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[{\"meta\":{\"index\":\"honey\",\"key\":\"attack_vector.raw\",\"value\":\"undefined\",\"disabled\":false,\"negate\":true},\"query\":{\"match\":{\"attack_vector.raw\":{\"query\":\"undefined\",\"type\":\"phrase\"}}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Attacks-by-Date-and-Country",
+    "_type": "visualization",
+    "_source": {
+      "title": "Attacks by Date and Country",
+      "visState": "{\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"country.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"event_datetime\",\"interval\":\"h\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"honey\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Source-IP-Breakdown",
+    "_type": "visualization",
+    "_source": {
+      "title": "Source IP Breakdown",
+      "visState": "{\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"host.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"row\":false}},{\"id\":\"2\",\"type\":\"ip_range\",\"schema\":\"segment\",\"params\":{\"field\":\"source_ip\",\"ipRangeType\":\"fromTo\",\"ranges\":{\"fromTo\":[{\"from\":\"0.0.0.0\",\"to\":\"63.255.255.255\"},{\"from\":\"64.0.0.0\",\"to\":\"127.255.255.255\"},{\"from\":\"128.0.0.0\",\"to\":\"191.255.255.255\"},{\"to\":\"255.255.255.255\",\"from\":\"192.0.0.0\"}],\"mask\":[{\"mask\":\"0.0.0.0/1\"},{\"mask\":\"128.0.0.0/2\"}]}}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"honey\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Attack-Vector-Metrics",
+    "_type": "visualization",
+    "_source": {
+      "title": "Attack Vector Metrics",
+      "visState": "{\"type\":\"table\",\"params\":{\"perPage\":20,\"showPartialRows\":false,\"showMeticsAtAllLevels\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"attack_vector.raw\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"honey\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[{\"meta\":{\"index\":\"honey\",\"key\":\"attack_vector.raw\",\"value\":\"undefined\",\"disabled\":false,\"negate\":true},\"query\":{\"match\":{\"attack_vector.raw\":{\"query\":\"undefined\",\"type\":\"phrase\"}}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Attacks-by-Vector-and-Country",
+    "_type": "visualization",
+    "_source": {
+      "title": "Attacks by Vector and Country",
+      "visState": "{\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"split\",\"params\":{\"field\":\"attack_vector.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"row\":false}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"country.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"honey\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Attacks-by-Date-and-Protocol",
+    "_type": "visualization",
+    "_source": {
+      "title": "Attacks by Date and Protocol",
+      "visState": "{\"aggs\":[{\"id\":\"1\",\"params\":{},\"schema\":\"metric\",\"type\":\"count\"},{\"id\":\"2\",\"params\":{\"customInterval\":\"2h\",\"extended_bounds\":{},\"field\":\"event_datetime\",\"interval\":\"h\",\"min_doc_count\":1},\"schema\":\"segment\",\"type\":\"date_histogram\"},{\"id\":\"3\",\"params\":{\"field\":\"protocol\",\"order\":\"desc\",\"orderBy\":\"1\",\"size\":5},\"schema\":\"group\",\"type\":\"terms\"}],\"listeners\":{},\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"mode\":\"stacked\",\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"times\":[],\"yAxis\":{}},\"type\":\"histogram\"}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"honey\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Attack-Map",
+    "_type": "visualization",
+    "_source": {
+      "title": "Attack Map",
+      "visState": "{\"type\":\"tile_map\",\"params\":{\"mapType\":\"Heatmap\",\"isDesaturated\":true,\"heatMaxZoom\":16,\"heatMinOpacity\":\"0.38\",\"heatRadius\":\"29\",\"heatBlur\":15,\"heatNormalizeData\":true,\"addTooltip\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"geohash_grid\",\"schema\":\"segment\",\"params\":{\"field\":\"lon_lat\",\"autoPrecision\":true,\"precision\":2}}],\"listeners\":{}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"honey\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  }
+]

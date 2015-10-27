@@ -1,0 +1,61 @@
+{
+    "honey": {
+        "settings": {
+            "number_of_replicas": "1",
+            "number_of_shards": "5"
+            }
+        },
+        "mappings": {
+            "attack": {
+                "properties": {
+                    "host": {
+                        "type":     "string",
+                        "analyzer": "english",
+                        "fields": {
+                            "raw": { "type":  "string", "index": "not_analyzed" }
+                        }
+                    },
+                    "event_datetime": { "type": "date", "format": "dateOptionalTime" },
+                    "protocol": { "type": "string" },
+                    "type": { "type": "string" },
+                    "source_port": { "type": "integer" },
+                    "dest_port": { "type": "integer" },
+                    "source_ip": { "type": "ip" },
+                    "cc": { "type": "string" },
+                    "country": {
+                        "type":     "string",
+                        "analyzer": "english",
+                        "fields": {
+                            "raw": { "type":  "string", "index": "not_analyzed" }
+                        }
+                    },
+                    "locale": {
+                        "type":     "string",
+                        "analyzer": "english",
+                        "fields": {
+                            "raw": { "type":  "string", "index": "not_analyzed" }
+                        }
+                    },
+                    "locale_abbr": {
+                        "type":     "string",
+                        "analyzer": "english",
+                        "fields": {
+                            "raw": { "type":  "string", "index": "not_analyzed" }
+                        }
+                    },
+                    "attack_vector": {
+                        "type":     "string",
+                        "analyzer": "english",
+                        "fields": {
+                            "raw": { "type":  "string", "index": "not_analyzed" }
+                        }
+                    },
+                    "postal_code": { "type": "string" },
+                    "latitude": { "type": "float" },
+                    "longitude": { "type": "float" },
+                    "lon_lat": { "type": "geo_point" }
+                }
+            }
+        }
+    }
+}
