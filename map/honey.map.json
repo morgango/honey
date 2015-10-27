@@ -33,7 +33,7 @@
                         }
                     },
                     "source_ip": { "type": "ip" },
-                    "cc": { "type": "string" },
+                    "country_code": { "type": "string" },
                     "country": {
                         "type":     "string",
                         "analyzer": "english",
