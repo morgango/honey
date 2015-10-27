@@ -38,9 +38,9 @@ In addition, I have enriched the data, providing protocol names (like HTTP, SSH,
 You should run:
 
 ```
-$honey/bin/clear.sh *<host name> <port>*
+$honey/bin/clear.sh*<host name> <port>
 
-$honey/bin/load.sh *<host name> <port>*
+$honey/bin/load.sh <host name> <port>
 ```
 
 There are optional arguments to provide a hostname and port for each of these scripts.  If these aren’t provided it will try to resolve a docker host or use localhost as a last resort.
