@@ -13,7 +13,7 @@ This project provides:
 The project has a number of subdirectories.
 
 * `bin` - binaries for loading the mappings and data into an ELK environment. YMMV.
-* `data` - the raw data and lookup files used to transformL with ogstash and loadinto Elasticsearch
+* `data` - the raw data and lookup files used to transform with Logstash and load into Elasticsearch
 * `load` - the Logstash configuration file. You will need to change this for your environment.
 * `map` - the Elasticsearch mappping.
 * `tmp` - a junk directory used for work
