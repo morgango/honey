@@ -1,7 +1,7 @@
 Honey is a project designed to show how to work with the entire ELK stack with some security-related data.
 
 
-[](kibana.png)
+![](https://github.com/morgango/honey/blob/master/kibana.png)
 
 This project provides:
 
