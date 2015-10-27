@@ -38,7 +38,7 @@ In addition, I have enriched the data, providing protocol names (like HTTP, SSH,
 You should run:
 
 ```
-$honey/bin/clear.sh*<host name> <port>
+$honey/bin/clear.sh <host name> <port>
 
 $honey/bin/load.sh <host name> <port>
 ```
