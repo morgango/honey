@@ -18,8 +18,20 @@
                     "event_datetime": { "type": "date", "format": "dateOptionalTime" },
                     "protocol": { "type": "string" },
                     "type": { "type": "string" },
-                    "source_port": { "type": "integer" },
-                    "dest_port": { "type": "integer" },
+                    "source_port": {
+                        "type":     "string",
+                        "analyzer": "english",
+                        "fields": {
+                            "num": { "type":  "integer", "index": "not_analyzed" }
+                        }
+                    },
+                    "dest_port": {
+                        "type":     "string",
+                        "analyzer": "english",
+                        "fields": {
+                            "num": { "type":  "integer", "index": "not_analyzed" }
+                        }
+                    },
                     "source_ip": { "type": "ip" },
                     "cc": { "type": "string" },
                     "country": {

@@ -15,6 +15,4 @@ echo "************************"
 
 cat $CONFIG | sed "s#localhost#$HOST:$PORT#g" > $TMP_CONFIG
 
-rm ~/.sincedb*
-
 $lb/logstash -f $TMP_CONFIG

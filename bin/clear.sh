@@ -10,4 +10,4 @@ echo "************************"
 echo "Working with $HOST on port $PORT"
 echo "************************"
 
-http DELETE $HOST:$PORT/honey && http PUT $HOST:$PORT/honey @$hm/honey.map.json
+http DELETE $HOST:$PORT/honey && http PUT $HOST:$PORT/honey @$honey/map/honey.map.json
