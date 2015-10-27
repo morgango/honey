@@ -1,5 +1,7 @@
 Honey is a project designed to show how to work with the entire ELK stack with some security-related data.
 
+
+[][kibana.png]
 This project provides:
 
 1. The raw data to analyze and additional data for enrichment.
@@ -13,11 +15,11 @@ This project provides:
 The project has a number of subdirectories.
 
 * `bin` - binaries for loading the mappings and data into an ELK environment. YMMV.
-* `data` - the raw data and lookup files used to transform with Logstash and load into Elasticsearch
+* `data` - the raw data and lookup files used to transform with Logstash and load into Elasticsearch.
 * `load` - the Logstash configuration file. You will need to change this for your environment.
 * `map` - the Elasticsearch mappping.
-* `tmp` - a junk directory used for work
-* `viz` - a JSON dump of the Kibana visualizations
+* `tmp` - a junk directory used for work.
+* `viz` - a JSON dump of the Kibana visualizations.
 
 ### Data
 
