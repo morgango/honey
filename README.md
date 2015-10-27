@@ -6,10 +6,10 @@ Honey is a project designed to show how to work with the entire ELK stack with s
 This project provides:
 
 1. The raw data to analyze and additional data for enrichment.
-2. The mappings to create in Elasticsearch.
-3. A Logstash confguration file for enriching and loading the data.
-4. Kibana visualization and dashboards for viewing the data.
-5. Helper scripts to automate (some of) the process.
+1. The mappings to create in Elasticsearch.
+1. A Logstash confguration file for enriching and loading the data.
+1. Kibana visualization and dashboards for viewing the data.
+1. Helper scripts to automate (some of) the process.
 
 ### Layout
 
