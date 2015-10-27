@@ -53,7 +53,7 @@ If you don’t like the scripts, they are only a few lines long, feel free to ty
 Here are some “teachable moments” embedded in this project.
 
 * Using multiple data types for a single field in an Elasticsearch mapping
-* Enriching data in Logstash
+* Enriching data in Logstash with the Translate filter
 * Parsing a CSV in Logstash
 * Building Lat/Long data types in Logstash
 * Building IP data types in Logstash
