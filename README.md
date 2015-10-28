@@ -24,7 +24,12 @@ The project has a number of subdirectories.
 
 ### Data
 
-The data itself is from [Data Driven Security](http://datadrivensecurity.info/blog/pages/dds-dataset-collection.html).  Muchas gracias to them for providing some usable data.
+The data itself is from [Data Driven Security](http://datadrivensecurity.info/blog/pages/dds-dataset-collection.html).  Muchas gracias to them for providing some usable data. In addition, I have enriched the data, providing protocol names (like HTTP, SSH, etc) to match the ports that are being provided in the data.
+
+
+#### Dictionary
+
+The important fields in the data are:
 
 * `attack_vector` - text that describes the protocol used to attack the server, if available (often it is not).  This is added to the original data.
 * `country_code` -  text for the country code for the attacker
@@ -37,12 +42,10 @@ The data itself is from [Data Driven Security](http://datadrivensecurity.info/bl
 * `locale_abbr` -  an abbreviation of the locale, if available
 * `lon_lat` -  a geo field that allows for really efficient searching in Elasticsearch.  This is added to the original data.
 * `longitude` -  the longitude of the attacker, stored as an integer
-* `postal_code` -  the postal_code of the attacker, if available
+* `postal_code` -  the postal_code of the attacker, if available.
 * `protocol` -  the protocol used to attack (TCP/UDP/ICMP)
 * `source_ip` -  the IP address of the attacker, stored as a searchable IP field.
 * `source_port` -  the port that was used to attack.  Kept as a string and an integer
-
-In addition, I have enriched the data, providing protocol names (like HTTP, SSH, etc) to match the ports that are being provided in the data.
 
 ### Dependencies
 
