@@ -50,10 +50,8 @@ The important fields in the data are:
 ### Dependencies
 
 1. You need to have Logstash installed locally.  Elasticsearch and Kibana can be containerized or on other servers.
-1. If you use the helper scripts you need to map the environment variable `honey` to the directory where README.md is located.
 1. The helper scripts use [HTTPie](https://github.com/jkbrzt/httpie), a great CLI replacement for cURL.  IF you use cURL you are simply heaping pain upon yourself.  I am not a masochist.
 1. If you want to rebuild the port list, you will need [CSVkit](https://github.com/onyxfish/csvkit), which will completely rock your world if you work with CSV files.  Totally recommended, but not necessary for this project.
-
 
 ### How to Run
 
