@@ -49,11 +49,17 @@ The important fields in the data are:
 
 ### Dependencies
 
-1. You need to have Logstash installed locally.  Elasticsearch and Kibana can be containerized or on other servers.
+1. You need to have Logstash installed locally and in the `$PATH`.  Elasticsearch and Kibana can be containerized or on other servers.
 1. The helper scripts use [HTTPie](https://github.com/jkbrzt/httpie), a great CLI replacement for cURL.  IF you use cURL you are simply heaping pain upon yourself.  I am not a masochist.
 1. If you want to rebuild the port list, you will need [CSVkit](https://github.com/onyxfish/csvkit), which will completely rock your world if you work with CSV files.  Totally recommended, but not necessary for this project.
 
 ### How to Run
+
+First, you should put the `logstash/bin` directory into your `PATH` variable.  The `load.sh` script has to use it to load the data, and if it can’t find it we are dead in the water.  It will take care of everything as long as it knows where it is.
+```
+export PATH=$PATH:/path/to/your/logstash/bin
+
+```
 
 To get things started, you should run:
 
@@ -63,9 +69,7 @@ bin/clear.sh <host name> <port>
 bin/load.sh <host name> <port>
 ```
 
-There are optional arguments to provide a hostname and port for each of these scripts.  If these aren’t provided it will try to resolve a docker host or use localhost as a last resort.
-
-If you don’t like the scripts, they are only a few lines long, feel free to type out the commands.  They are only provided as a convienience, they take the hard-coded values in logstash and override them for the local environment.
+There are optional arguments to provide a hostname and port for each of these scripts.  If these aren’t provided it will try to resolve a docker host or use localhost as a last resort. If you don’t like the scripts, they are only a few lines long, feel free to type out the commands.  They are only provided as a convienience, they take the hard-coded values in logstash and override them for the local environment.
 
 Lastly, you should import the json files in the `viz` directory into Kibana through the advanced settings.
 

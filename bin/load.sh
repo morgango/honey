@@ -35,7 +35,8 @@ echo "Looking for Logstash"
 which logstash
 
 if [ $? -eq 1 ]; then
-    echo "This script requires logstash to be accessible through the PATH"
+    echo "Couldn't find it =("
+    echo "This script requires logstash to be accessible through the PATH, exiting."
     exit
 else
     cd $(dirname $(which logstash))
