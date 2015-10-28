@@ -57,9 +57,10 @@ In addition, I have enriched the data, providing protocol names (like HTTP, SSH,
 You should set up your environment variables (either in the shell or profile) to include:
 
 ```
-export honey=/the/path/to/this/repo
-
+export honey=/the/path/to/this/repo 
 ```
+
+You _have_ to do this if you want to run the `clear.sh` and `load.sh` scripts.
 
 Then, you should run:
 
