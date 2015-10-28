@@ -57,8 +57,7 @@ The important fields in the data are:
 
 First, you should put the `logstash/bin` directory into your `PATH` variable.  The `load.sh` script has to use it to load the data, and if it can’t find it we are dead in the water.  It will take care of everything as long as it knows where it is.
 ```
-export PATH=$PATH:/path/to/your/logstash/bin
-
+export PATH=$PATH:/path/to/your/logstash/bin 
 ```
 
 To get things started, you should run:
@@ -83,6 +82,7 @@ Here are some “teachable moments” embedded in this project.
 * Building Lat/Long data types in Logstash
 * Building IP data types in Logstash
 * Running a Logstash configuration to an arbitrary server
+* Running a Logstash configuration to point at an arbitrary directory
 * Running a Logstash configuration from the beginning of a file every time
 * Importing/exporting Kibana objects.
 * Using Docker with the ELK stack
