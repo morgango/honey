@@ -62,6 +62,11 @@ You should set up your environment variables (either in the shell or profile) to
 ```
 export honey=/the/path/to/this/repo 
 ```
+also, setup your logstash/bin env var
+
+```
+export lb=/path/to/logstash/bin
+```
 
 You _have_ to do this if you want to run the `clear.sh` and `load.sh` scripts.
 
