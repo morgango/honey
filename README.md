@@ -54,7 +54,14 @@ In addition, I have enriched the data, providing protocol names (like HTTP, SSH,
 
 ### How to Run
 
-You should run:
+You should set up your environment variables (either in the shell or profile) to include:
+
+```
+export honey=/the/path/to/this/repo
+
+```
+
+Then, you should run:
 
 ```
 $honey/bin/clear.sh <host name> <port>
