@@ -30,4 +30,11 @@ echo "************************"
 
 cat $CONFIG | sed "s#localhost#$HOST:$PORT#g" | sed "s#/Users/mg/dev/demos/honey/data#$DATA_DN#g" > $TMP_CONFIG
 
-$lb/logstash -f $TMP_CONFIG
+if [ $? -eq 1 ]; then
+    echo "This script requires logstash to be accessible through the PATH"
+    exit
+else
+    cd $(dirname $(which logstash))
+    ./logstash -f $TMP_CONFIG
+    cd $OLDPWD
+fi
