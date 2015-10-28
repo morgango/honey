@@ -57,15 +57,7 @@ The important fields in the data are:
 
 ### How to Run
 
-You should set up your environment variables (either in the shell or profile) to include:
-
-```
-export honey=/the/path/to/this/repo 
-```
-
-You _have_ to do this if you want to run the `clear.sh` and `load.sh` scripts.
-
-Then, you should run:
+To get things started, you should run:
 
 ```
 $honey/bin/clear.sh <host name> <port>
@@ -75,8 +67,9 @@ $honey/bin/load.sh <host name> <port>
 
 There are optional arguments to provide a hostname and port for each of these scripts.  If these aren’t provided it will try to resolve a docker host or use localhost as a last resort.
 
-If you don’t like the scripts, they are only a few lines long, feel free to type out the commands.  They are only provided as a convienience.
+If you don’t like the scripts, they are only a few lines long, feel free to type out the commands.  They are only provided as a convienience, they take the hard-coded values in logstash and override them for the local environment.
 
+Lastly, you should import the json files in the `viz` directory into Kibana through the advanced settings.
 
 ### Some Nice Things
 

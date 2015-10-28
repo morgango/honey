@@ -1,7 +1,22 @@
 #!/bin/bash
 
-CONFIG=${LS_CONFIG:-"$honey/load/simple.conf"}
-TMP_CONFIG=${TMP_CONFIG:-"$honey/tmp/honey.conf"}
+export BASE_DN="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/.."
+
+cd $BASE_DN
+
+export BIN_DN=$BASE_DN/bin
+export DATA_DN=$BASE_DN/data
+export LOAD_DN=$BASE_DN/load
+export MAP_DN=$BASE_DN/map
+export TMP_DN=$BASE_DN/tmp
+export VIZ_DN=$BASE_DN/viz
+
+cd $OLDPWD
+
+mkdir -vp $TMP_DN
+
+CONFIG=${LS_CONFIG:-"$LOAD_DN/simple.conf"}
+TMP_CONFIG=${TMP_CONFIG:-"$TMP_DN/honey.conf"}
 
 HOST_ARG=${1:-$(echo $DOCKER_HOST | sed 's/tcp:\/\/\(.*\):.*/\1/g')}
 HOST_ARG=${HOST_ARG:-'localhost'}
@@ -13,6 +28,6 @@ echo "************************"
 echo "Working with $HOST on port $PORT"
 echo "************************"
 
-cat $CONFIG | sed "s#localhost#$HOST:$PORT#g" > $TMP_CONFIG
+cat $CONFIG | sed "s#localhost#$HOST:$PORT#g" | sed "s#/Users/mg/dev/demos/honey/data#$DATA_DN#g" > $TMP_CONFIG
 
 $lb/logstash -f $TMP_CONFIG
