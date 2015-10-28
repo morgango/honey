@@ -60,9 +60,9 @@ The important fields in the data are:
 To get things started, you should run:
 
 ```
-$honey/bin/clear.sh <host name> <port>
+bin/clear.sh <host name> <port>
 
-$honey/bin/load.sh <host name> <port>
+bin/load.sh <host name> <port>
 ```
 
 There are optional arguments to provide a hostname and port for each of these scripts.  If these aren’t provided it will try to resolve a docker host or use localhost as a last resort.
