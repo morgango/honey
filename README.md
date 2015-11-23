@@ -59,6 +59,11 @@ First, you should put the `logstash/bin` directory into your `PATH` variable.  T
 ```
 export PATH=$PATH:/path/to/your/logstash/bin 
 ```
+also, setup your logstash/bin env var
+
+```
+export lb=/path/to/logstash/bin
+```
 
 To get things started, you should run:
 
